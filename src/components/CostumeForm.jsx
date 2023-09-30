@@ -10,7 +10,7 @@ const CostumeForm = ({createCostumeFunction}) => {
     const addNewCostume = (e) => {
         e.preventDefault()
         const newCostume = {
-            ...costume, id:Date.now()
+            ...costume, id:Date.now(), category: selectedCategoryForCreation
         }
         createCostumeFunction(newCostume);
         setCostume({name: '', category:'', description: '', price:''})
@@ -19,14 +19,16 @@ const CostumeForm = ({createCostumeFunction}) => {
     return (
         <form action="">
             <Input value={costume.name} onChange={e=>setCostume({...costume, name: e.target.value})} type="text" placeholder={"Введите название..."}/>
+            <Input value={costume.description} onChange={e=>setCostume({...costume, description: e.target.value})} type="text" placeholder={"Введите описание..."}/>
+            <Input value={costume.price} onChange={e=>setCostume({...costume, price: e.target.value})} type="text" placeholder={"Введите цену..."}/>
             {/*<Input value={costume.category} onChange={e=>setCostume({...costume, category: e.target.value})} type="text" placeholder={"Введите категорию..."}/>*/}
 
-            {/*<Select defaultValue={"Сортировка"} value={selectedCategoryForCreation} onChange={category => setSelectedCategoryForCreation(category)} options={[*/}
-            {/*    {value: 'mil', name: 'mil'},*/}
-            {/*    {value: 'car', name: 'car'},*/}
-            {/*    {value: 'spring', name: 'spring'}*/}
-            {/*]}>*/}
-            {/*</Select>*/}
+            <Select defaultValue={"Сортировка"} value={selectedCategoryForCreation} onChange={category => setSelectedCategoryForCreation(category)} options={[
+                {value: 'Военные', name: 'Военные'},
+                {value: 'Карнавальные', name: 'Карнавальные'},
+                {value: 'Осень', name: 'Осенние'}
+            ]}>
+            </Select>
 
 
             {/*<select defaultValue={selectedCategoryForCreation}*/}
@@ -37,16 +39,6 @@ const CostumeForm = ({createCostumeFunction}) => {
             {/*    <option value="spring">Осень</option>*/}
             {/*</select>*/}
 
-            <select
-                onChange={event => setSelectedCategoryForCreation(event.target.value)}
-                defaultValue={selectedCategoryForCreation}
-            >
-                <option value="react">React</option>
-                <option value="js">JavaScript</option>
-            </select>
-
-            <Input value={costume.description} onChange={e=>setCostume({...costume, description: e.target.value})} type="text" placeholder={"Введите описание..."}/>
-            <Input value={costume.price} onChange={e=>setCostume({...costume, price: e.target.value})} type="text" placeholder={"Введите цену..."}/>
             <Button onClick={addNewCostume}>Добавить костюм</Button>
         </form>
     );

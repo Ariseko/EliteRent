@@ -22,13 +22,18 @@ function App() {
     const removeCostumeFromList = (costume) => {
         setCostumes(costumes.filter(p=> p.id !== costume.id))
     }
+    
+    const sortCostumes = (sort) => {
+        setSelectedSort(sort);
+        console.log(sort);
+    }
 
     return (
         <div className="App">
             <CostumeForm createCostumeFunction={createCostume}/>
             <hr style={{margin:"15px 0"}}/>
             <div>
-                <Select defaultValue={"Сортировка"} value={selectedSort} onChange={sort => setSelectedSort(sort)} options={[
+                <Select defaultValue={"Сортировка"} value={selectedSort} onChange={sortCostumes} options={[
                     {value: 'title', name: 'По названию'},
                     {value: 'category', name: 'По категориям'},
                     {value: 'price', name: 'По цене'}
