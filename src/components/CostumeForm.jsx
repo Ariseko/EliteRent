@@ -26,19 +26,11 @@ const CostumeForm = ({createCostumeFunction}) => {
             <Select defaultValue={"Сортировка"} value={selectedCategoryForCreation} onChange={category => setSelectedCategoryForCreation(category)} options={[
                 {value: 'Военные', name: 'Военные'},
                 {value: 'Карнавальные', name: 'Карнавальные'},
-                {value: 'Осень', name: 'Осенние'}
+                {value: 'Осенние', name: 'Осенние'}
             ]}>
             </Select>
-
-
-            {/*<select defaultValue={selectedCategoryForCreation}*/}
-            {/*    onChange={event=>setSelectedCategoryForCreation(event.target.value)}*/}
-            {/*>*/}
-            {/*    <option value="military">Военные</option>*/}
-            {/*    <option value="carnaval">Карнавал</option>*/}
-            {/*    <option value="spring">Осень</option>*/}
-            {/*</select>*/}
-
+            <br/>
+            <br/>
             <Button onClick={addNewCostume}>Добавить костюм</Button>
         </form>
     );

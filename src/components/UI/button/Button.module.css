@@ -6,3 +6,7 @@
     border: 1px solid #E97136;
     cursor: pointer;
 }
+
+.myBtn:hover {
+    background: #FF9A5B;
+}

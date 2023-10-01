@@ -10,7 +10,8 @@
 
 #root {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .App {
@@ -24,4 +25,57 @@
     margin-top: 15px;
     justify-content: space-between;
     align-items: center;
+}
+
+.costumeItem-enter {
+    transform: translateX(-350px);
+}
+.costumeItem-enter-active {
+    transform: translateX(0px);
+    transition: all 500ms ease-in;
+}
+.costumeItem-exit {
+    opacity: 1;
+}
+.costumeItem-exit-active {
+    transform: translateX(-350px);
+    transition: all 500ms ease-in;
+}
+
+.page_counter__wrapper {
+    margin-top: 30px;
+    display: flex;
+}
+
+.page_current {
+    border: 2px solid #F5342C;
+    font-weight: bold;
+}
+
+.page_counter {
+    padding: 10px;
+    border: 1px solid ;
+    cursor: pointer;
+    background: #E97136;
+    color: white;
+}
+.page_counter:hover {
+    background: #FF9A5B;
+}
+
+.navbar {
+    height: 50px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    background: #E97136;
+}
+
+.navbar__links {
+    margin-left: auto;
+}
+
+costume__btns {
+    display: flex;
 }
