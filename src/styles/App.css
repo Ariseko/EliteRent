@@ -18,30 +18,6 @@
     width: 800px;
 }
 
-.costume {
-    display: flex;
-    padding: 15px;
-    border: 2px solid #082264;
-    margin-top: 15px;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.costumeItem-enter {
-    transform: translateX(-350px);
-}
-.costumeItem-enter-active {
-    transform: translateX(0px);
-    transition: all 500ms ease-in;
-}
-.costumeItem-exit {
-    opacity: 1;
-}
-.costumeItem-exit-active {
-    transform: translateX(-350px);
-    transition: all 500ms ease-in;
-}
-
 .page_counter__wrapper {
     margin-top: 30px;
     display: flex;

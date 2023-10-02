@@ -47,13 +47,17 @@ function Costumes() {
         setPage(page)
     }
 
+
     return (
         <div className="App">
 
+
             <Button onClick={fetchCostumes}>Получить костюмы</Button>
-            <Button style={{marginTop: 30}} onClick={()=>setModal(true)}>
+            <Button style={{marginTop: 30, marginRight: 10}} onClick={()=>setModal(true)}>
                 Добавить костюм
             </Button>
+
+
             <Modal visible={modal} setVisible={setModal}>
                 <CostumeForm createCostumeFunction={createCostume}/>
             </Modal>

@@ -1,25 +1,43 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Navigate, Route, Routes} from "react-router-dom";
-import About from "../pages/About";
-import Costumes from "../pages/Costumes";
 import Error from "../pages/Error";
-import CostumeIdPage from "../pages/CostumeIdPage";
+import {privateRoutes, publicRoutes} from "../router/router";
+import {AuthContext} from "../context/context";
+import Loader from "./UI/Loader/Loader";
+
 
 const AppRouter = () => {
+    const {isAuth, isLoading, isAdmin} = useContext(AuthContext);
+    if (isLoading) {
+        return <Loader/>
+    }
+
     return (
-        <Routes>
-            <Route path={"/about"} element={<About/> }></Route>
 
-            <Route path={"/costumes"} element={<Costumes/> }></Route>
+        isAuth
+        ?
+            <Routes>
+                {
+                    privateRoutes.map(route=>
+                        <Route key={route.path} path={route.path} element={route.component}></Route>
+                    )
+                }
 
-            <Route path={'/costumes/:id'} element={<CostumeIdPage/>}></Route>
+                <Route path={"/error"} element={<Error/>}></Route>
+                <Route path={"*"} element={ <Navigate to={"/products"}/>} ></Route>
+            </Routes>
+        :
+            <Routes>
+                {
+                    publicRoutes.map(route=>
+                        <Route key={route.path} path={route.path} element={route.component}></Route>
+                    )
+                }
 
-            <Route path={"/error"} element={<Error/>}></Route>
+                <Route path={"/error"} element={<Error/>}></Route>
+                <Route path={"*"} element={ <Navigate to={"/login"}/>} ></Route>
+            </Routes>
 
-
-
-            <Route path={"*"} element={ <Navigate to={"/error"}/>} ></Route>
-        </Routes>
     );
 };
 
