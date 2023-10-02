@@ -7,7 +7,6 @@ import {AuthContext} from "./context/context";
 import './styles/App.css'
 import './styles/CostumeItemStyles.css'
 import './styles/CostumesPageStyles.css'
-import './styles/aboutPage.css'
 import './styles/Navbar.css'
 
 

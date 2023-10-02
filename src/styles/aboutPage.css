@@ -1,13 +1,7 @@
 .aboutPage {
-    width: 800px;
+    width: 100%;
     position: static;
     justify-content: stretch;
-}
-
-
-.aboutPage img {
-    width: 1000px;
-    height: 300px;
 }
 
 h1 {
@@ -24,23 +18,27 @@ h1 {
 .rec1 {
     align-items: center;
     display: flex;
-    width: 80%;
     margin-top: 50px;
     margin-bottom: 50px;
 }
 
 .rec2 {
-    align-items: center;
     display: flex;
-    width: 80%;
+    width: 1000px;
+    align-items: center;
+
     margin-top: 50px;
     margin-bottom: 50px;
+    justify-content: space-around;
 }
 
 .rec3 {
     align-items: center;
     display: flex;
-    width: 80%;
     margin-top: 50px;
     margin-bottom: 50px;
+}
+
+img {
+    width: 500px;
 }
