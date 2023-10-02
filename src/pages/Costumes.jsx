@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import '../styles/App.css'
 import CostumeList from "../components/costumeList";
 import CostumeForm from "../components/CostumeForm";
@@ -11,6 +11,7 @@ import Loader from "../components/UI/Loader/Loader";
 import {useFetching} from "../components/hooks/useFetching";
 import {getPagesCount} from "../utils/pages";
 import Pagination from "../components/UI/pagination/pagination";
+import {AuthContext} from "../context/context";
 
 function Costumes() {
     const [totalPages, setTotalPages] = useState(0)
@@ -46,16 +47,19 @@ function Costumes() {
     const changePage = (page) => {
         setPage(page)
     }
-
+     const {isAdmin} = useContext(AuthContext)
 
     return (
-        <div className="App">
+        <div className="Costumes">
+
+            {isAdmin
+                ?   <Button style={{marginTop: 30, marginRight: 10}} onClick={()=>setModal(true)}>
+                        Добавить костюм
+                    </Button>
+                : null
+            }
 
 
-            <Button onClick={fetchCostumes}>Получить костюмы</Button>
-            <Button style={{marginTop: 30, marginRight: 10}} onClick={()=>setModal(true)}>
-                Добавить костюм
-            </Button>
 
 
             <Modal visible={modal} setVisible={setModal}>

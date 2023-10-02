@@ -55,3 +55,8 @@
 costume__btns {
     display: flex;
 }
+
+a {
+    text-decoration: none;
+    color: white;
+}

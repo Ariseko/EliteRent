@@ -12,4 +12,8 @@ export default class CostumeService {
     static async getOneCostume(id){
         return await axios.get(`http://localhost:8081/products/${id}`)
     }
+
+    static async getAllCategories() {
+        return await axios.get('http://localhost:8081/categories')
+    }
 }

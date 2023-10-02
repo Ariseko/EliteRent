@@ -12,7 +12,7 @@ const CostumeList = ({costumes, listTitle, removeCostumeFunction}) => {
     }
 
     return (
-        <div>
+        <div className={"costumesList"}>
             <h1 style={{textAlign:"center"}}>{listTitle}</h1>
 
             <TransitionGroup>
